@@ -28,6 +28,12 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.blue,
+      appBar: AppBar(
+        backgroundColor: Colors.blue,
+        title: const Text('Curved Navigation Bar'),
+        centerTitle: true,
+        elevation: 0,
+      ),
     );
   }
 }
