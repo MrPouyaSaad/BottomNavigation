@@ -1,3 +1,8 @@
+import 'package:bottom_navigation/screens/favorite.dart';
+import 'package:bottom_navigation/screens/home.dart';
+import 'package:bottom_navigation/screens/profile.dart';
+import 'package:bottom_navigation/screens/search.dart';
+import 'package:bottom_navigation/screens/settings.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Bottom Navigation',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
@@ -31,6 +37,15 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   int index = 2;
+
+  final screens = const [
+    HomeScreen(),
+    SearchScreen(),
+    FavoriteScreen(),
+    SettingsScreen(),
+    ProfileScreen(),
+  ];
+
   final items = const [
     Icon(Icons.home, size: 30),
     Icon(Icons.search, size: 30),
@@ -45,10 +60,15 @@ class _MainScreenState extends State<MainScreen> {
       backgroundColor: Colors.blue,
       appBar: AppBar(
         backgroundColor: Colors.blue,
-        title: const Text('Curved Navigation Bar'),
+        foregroundColor: Colors.white,
+        title: const Text(
+          'Curved Navigation Bar',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
         centerTitle: true,
         elevation: 0,
       ),
+      body: screens[index],
       bottomNavigationBar: CurvedNavigationBar(
         backgroundColor: Colors.transparent,
         animationCurve: Curves.easeInOut,
