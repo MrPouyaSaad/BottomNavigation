@@ -61,9 +61,17 @@ class _MainScreenState extends State<MainScreen> {
       appBar: AppBar(
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
-        title: const Text(
-          'Curved Navigation Bar',
-          style: TextStyle(fontWeight: FontWeight.bold),
+        title: const Column(
+          children: [
+            Text(
+              'Curved Navigation Bar',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+            Text(
+              'pouya.code',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+            ),
+          ],
         ),
         centerTitle: true,
         elevation: 0,
